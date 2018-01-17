@@ -1,0 +1,19 @@
+{
+  "name": "reactjs-hotels",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linkstrifer/reactjs-hotels.git"
+  },
+  "author": "Link Strifer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linkstrifer/reactjs-hotels/issues"
+  },
+  "homepage": "https://github.com/linkstrifer/reactjs-hotels#readme"
+}
