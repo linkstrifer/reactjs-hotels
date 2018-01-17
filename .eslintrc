@@ -1,0 +1,12 @@
+{
+  "extends": "rallycoding",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
+  "rules": {
+    "global-require": "off"
+  }
+}
