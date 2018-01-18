@@ -2,7 +2,7 @@ const express = require('express');
 const Routes = require('./api/hotels/hotels.routes');
 
 const App = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8010;
 
 Routes(App);
 
