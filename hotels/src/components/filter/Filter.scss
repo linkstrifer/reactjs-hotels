@@ -36,6 +36,10 @@
   display: flex;
   justify-content: space-between;
   padding-top: 20px;
+
+  &.no-flex {
+    display: block;
+  }
 }
 
 .filter-box-title {
@@ -90,4 +94,8 @@
   margin-right: 10px;
   padding: 10px;
   width: 100%;
+}
+
+.filter-label {
+  display: flex;
 }

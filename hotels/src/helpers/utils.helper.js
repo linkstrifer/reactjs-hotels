@@ -1,7 +1,7 @@
 export const mapNumber = (n, callback) => {
   const tempArray = new Array(n);
 
-  return Array.apply(null, tempArray).map(callback);
+  return Array.apply(null, tempArray).map(callback).reverse();
 };
 
 export const getHotelUrl = data => {
