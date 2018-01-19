@@ -1,0 +1,9 @@
+@import 'styles/variables.scss';
+
+.list {
+  padding: 20px;
+
+  @media #{$breakpoint-md} {
+    width: 75%;
+  }
+}

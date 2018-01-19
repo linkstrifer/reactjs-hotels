@@ -1,11 +1,10 @@
 import React from 'react';
 import './Header.css';
-import logo from './../../assets/images/logo.svg';
 
 const HeaderComponent = () => (
   <header className="header">
     <img
-      src={logo}
+      src={`${process.env.PUBLIC_URL}/assets/logo.svg`}
       className="header-logo"
       alt="almundo.com"
     />

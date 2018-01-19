@@ -2,13 +2,17 @@
 
 .header {
   background-color: $blue;
-  border-bottom: 4px solid $lightBlue;
+  border-bottom: 4px solid $grayBlue;
   box-sizing: border-box;
   color: $white;
   height: 115px;
+  left: 0;
   overflow: hidden;
   padding: 30px 20px;
-  position: relative;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 100;
 
   &:before {
     bottom: 0;

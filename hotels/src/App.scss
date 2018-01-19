@@ -2,5 +2,20 @@
 
 body {
   background-color: $gray;
+  color: $darkGray;
+  font-family: sans-serif;
+  font-size: 1.5vh;
   margin: 0;
+
+  @media #{$breakpoint-md} {
+    font-size: 16px;
+  }
+}
+
+.container {
+  padding-top: 115px;
+
+  @media #{$breakpoint-md} {
+    padding-top: 160px;
+  }
 }

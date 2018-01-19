@@ -1,16 +1,40 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import { getData } from './helpers/data.helper';
+
 import Header from './components/header/Header.component';
+import HotelList from './components/list/List.component';
 
 class App extends Component {
+  state = {
+    total: 0,
+    results: []
+  }
+
+  componentWillMount() {
+    getData('//localhost:8010/')
+      .then(data => {
+        this.setState({...data})
+      })
+      .catch(error => console.log(error));
+  }
+
   render() {
+    const { results } = this.state;
+
     return (
-      <div class="App">
+      <div className="App">
         <Header />
-        {/* container */}
+        <main
+          role="main"
+          className="container"
+        >
           {/* filters */}
-          {/* list */}
+          <HotelList
+            results={results}
+          />
+        </main>
       </div>
     );
   }
