@@ -14,7 +14,7 @@ const list = ({ params }, res) => {
 
 const search = ({ params }, res) => {
   const page = params.page || 0;
-  const query = params.query ? new RegExp(params.query.toLowerCase(), 'g') : false;
+  const query = params.query !== '' ? new RegExp(params.query.toLowerCase(), 'g') : false;
   const filterParam = params.filterParam;
   let results = data
     .filter(hotel => {
