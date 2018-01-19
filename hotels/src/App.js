@@ -11,25 +11,35 @@ import Filter from './components/filter/Filter.component';
 
 class App extends Component {
   state = {
-    total: 0,
-    results: [],
-    filtered: [],
-    filterParams: [],
-    query: null,
     currentPage: 0,
+    error: null,
+    filterParams: [],
+    filtered: [],
+    loading: false,
+    query: null,
+    results: [],
+    total: 0,
   }
 
   componentWillMount() {
     const { filter, scrollHandler } = this;
 
+    this.setState({
+      loading: true,
+    });
+
     search()
       .then(data => {
         this.setState(prevState => ({
           ...data,
-          filtered: filter(data.results, prevState.filterParams)
+          filtered: filter(data.results, prevState.filterParams),
+          loading: false,
         }))
       })
-      .catch(error => console.log(error));
+      .catch(error => this.setState({
+        error,
+        loading: false,
+      }));
 
     window.addEventListener('scroll', scrollHandler)
   }
@@ -74,18 +84,26 @@ class App extends Component {
 
     window.addEventListener('scroll', scrollHandler);
 
+    this.setState({
+      loading: true,
+    });
+
     search(query, 0)
       .then(data => {
         const { filter } = this;
 
         this.setState(prevState => ({
           ...data,
-          filtered: filter(data.results, prevState.filterParams),
-          query,
           currentPage: 0,
+          filtered: filter(data.results, prevState.filterParams),
+          loading: false,
+          query,
         }))
       })
-      .catch(error => console.log(error));
+      .catch(error => this.setState({
+        error,
+        loading: false,
+      }));
   }
 
   filter = (results, filterParams) => {
@@ -114,13 +132,20 @@ class App extends Component {
     })
   }
 
+  renderError = () => (
+    <div className="error">
+      Error: {this.state.error}
+    </div>
+  )
+
   render() {
-    const { filtered } = this.state;
-    const { searchHandler, filterHandler } = this;
+    const { filtered, loading, error } = this.state;
+    const { searchHandler, filterHandler, renderError } = this;
 
     return (
       <div className="App">
         <Header />
+        { error && renderError() }
         <main
           role="main"
           className="container"
@@ -129,9 +154,16 @@ class App extends Component {
             searchHandler={searchHandler}
             filterHandler={filterHandler}
           />
-          <HotelList
+          { !loading && (
+            <HotelList
             results={filtered}
           />
+          )}
+          { loading && (
+            <div className="loading-text">
+              Cargando resultados
+            </div>
+          ) }
         </main>
       </div>
     );

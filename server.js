@@ -13,10 +13,9 @@ App.use((req, res, next) => {
 Routes(App);
 
 App.use((req, res) => {
-  res.status(404).send(`
-    Error:
-    The url '${req.originalUrl}' doesn't exist
-  `);
+  res.status(404).send({
+    error: '404'
+  });
 });
 
 App.listen(port);

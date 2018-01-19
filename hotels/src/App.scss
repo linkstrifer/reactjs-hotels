@@ -22,3 +22,24 @@ body {
     padding-top: 160px;
   }
 }
+
+.loading-text {
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+
+  @media #{$breakpoint-md} {
+    width: 70%;
+  }
+}
+
+.error {
+  background-color: $red;
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  z-index: 101;
+}
