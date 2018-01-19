@@ -6,8 +6,6 @@
 
 I'm using `npx` so you need `npm +5.2` to use it.
 
-Before use this, you need to install all the dependencies, just run `npm i`, that will do the trick.
+### Development
 
-### Server
-
-Then, to mount a dev server just run `npm start`, this will mount a express server, some gulp task to assure code quality and a react dev environment.
+Then, to mount a dev server just run `npm start`, this will install all the dependencies for the server an the React site, also will mount a express server on port `8010` and a development server on port `3000`;
