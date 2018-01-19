@@ -16,6 +16,9 @@ body {
   padding-top: 115px;
 
   @media #{$breakpoint-md} {
+    align-items: flex-start;
+    display: flex;
+    justify-content: flex-end;
     padding-top: 160px;
   }
 }

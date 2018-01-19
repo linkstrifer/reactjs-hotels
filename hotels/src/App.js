@@ -5,6 +5,7 @@ import { getData } from './helpers/data.helper';
 
 import Header from './components/header/Header.component';
 import HotelList from './components/list/List.component';
+import Filter from './components/filter/Filter.component';
 
 class App extends Component {
   state = {
@@ -30,7 +31,7 @@ class App extends Component {
           role="main"
           className="container"
         >
-          {/* filters */}
+          <Filter />
           <HotelList
             results={results}
           />

@@ -1,0 +1,93 @@
+@import 'styles/variables.scss';
+
+.filter {
+  box-shadow: $shadow;
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 100%;
+
+  @media #{$breakpoint-md} {
+    left: 0;
+    position: fixed;
+    width: calc(30% - 60px);
+  }
+}
+
+.filter-box {
+  background-color: $white;
+  border-bottom: 8px solid $gray;
+  padding: 20px 20px 20px 30px;
+}
+
+.filter-box-toggle {
+  max-height: 200px;
+  transition: max-height 250ms ease-in-out, opacity 500ms ease-in-out;
+  overflow: hidden;
+  opacity: 1;
+
+  &.is-closed {
+    max-height: 0;
+    opacity: 0;
+  }
+}
+
+.filter-box-content {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.filter-box-title {
+  color: $lightBlue;
+  display: block;
+  font-weight: bold;
+  position: relative;
+  
+  &:after {
+    content: '\25b2';
+    font-size: .8em;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &.is-closed {
+    &:after {
+      content: '\25bc';
+    }
+  }
+}
+
+.filter-icon {
+  height: 15px;
+  margin-right: 5px;
+  vertical-align: top;
+  width: 15px;
+}
+
+.filter-button {
+  background-color: $blue;
+  border-bottom: 5px solid $darkBlue;
+  border-radius: 5px;
+  color: $white;
+  font-size: 1em;
+  font-weight: bold;
+  height: 45px;
+  letter-spacing: 1px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.filter-input {
+  border-radius: 3px;
+  border: 1px solid darken($gray, 10%);
+  box-sizing: border-box;
+  font-size: 1em;
+  height: 45px;
+  margin-right: 10px;
+  padding: 10px;
+  width: 100%;
+}
