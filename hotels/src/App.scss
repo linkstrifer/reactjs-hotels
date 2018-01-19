@@ -1,0 +1,45 @@
+@import 'styles/variables.scss';
+
+body {
+  background-color: $gray;
+  color: $darkGray;
+  font-family: sans-serif;
+  font-size: 1.5vh;
+  margin: 0;
+
+  @media #{$breakpoint-md} {
+    font-size: 16px;
+  }
+}
+
+.container {
+  padding-top: 115px;
+
+  @media #{$breakpoint-md} {
+    align-items: flex-start;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 160px;
+  }
+}
+
+.loading-text {
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+
+  @media #{$breakpoint-md} {
+    width: 70%;
+  }
+}
+
+.error {
+  background-color: $red;
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  z-index: 101;
+}

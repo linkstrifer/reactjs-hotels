@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently --kill-others \"gulp dev:api\" \"nodemon server.js\""
+    "start": "concurrently --kill-others \"npx gulp dev:api\" \"nodemon server.js\" \"(cd hotels ; npm start)\" "
   },
   "repository": {
     "type": "git",

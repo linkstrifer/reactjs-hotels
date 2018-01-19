@@ -1,0 +1,157 @@
+@import 'styles/variables.scss';
+
+.hotel {
+  background-color: $white;
+  box-shadow: $shadow;
+  box-sizing: border-box;
+  margin: auto;
+  margin-bottom: 30px;
+  max-width: 550px;
+  padding: 15px;
+
+  @media #{$breakpoint-md} {
+    display: flex;
+    position: relative;
+    max-width: initial;
+  }
+}
+
+.hotel-image-container {
+  margin: 0;
+  width: 100%;
+
+  @media #{$breakpoint-md} {
+    max-width: 400px;
+    width: 35%;
+  }
+}
+
+.hotel-image {
+  width: 100%;
+}
+
+.hotel-data {
+  border-bottom: dashed 2px $darkGray;
+  padding-bottom: 40px;
+
+  @media #{$breakpoint-md} {
+    border-bottom: 0;
+    border-right: dashed 1px $darkGray;
+    margin: 0 15px;
+    padding-bottom: 0;
+    width: calc(35% - 30px);
+    flex-grow: 2;
+  }
+}
+
+.hotel-name {
+  color: $lightBlue;
+  font-weight: bold;
+  font-size: 2em;
+  margin: 25px 0 0;
+  
+  @media #{$breakpoint-md} {
+    font-size: 1.3em;
+    margin: 0;
+  }  
+}
+
+.hotel-stars {
+  display: flex;
+  margin-top: 25px;
+
+  @media #{$breakpoint-md} {
+    margin-top: 5px;
+  }  
+}
+
+.hotel-star {
+  height: 30px;
+  width: 30px;
+}
+
+.hotel-amenities {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 25px;
+
+  @media #{$breakpoint-md} {
+    margin-top: 20px;
+  }  
+}
+
+.hotel-amenity {
+  height: 35px;
+  margin-right: 10px;
+  width: 35px;
+}
+
+.hotel-price-copy {
+  display: block;
+  font-size: 1.5em;
+  margin-top: 25px;
+  text-align: center;
+
+  @media #{$breakpoint-md} {
+    font-size: 1em;
+    margin-top: 0;
+  }
+}
+
+.hotel-price-container {
+  color: $orange;
+  display: block;
+  font-size: 1.5em;
+  margin-top: 25px;
+  text-align: center;
+
+  @media #{$breakpoint-md} {
+    font-size: .8em;
+    margin-top: 5px;
+  }
+}
+
+.hotel-currency {
+  font-size: 1.9em;
+  font-weight: lighter;
+  margin: 0 .3em;
+  vertical-align: middle;
+}
+
+.hotel-price {
+  font-size: 3em;
+  vertical-align: middle;
+}
+
+.hotel-cta {
+  background-color: $blue;
+  border-bottom: 5px solid $darkBlue;
+  border-radius: 5px;
+  color: $white;
+  display: block;
+  font-size: 2em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 25px auto 0;
+  max-width: 570px;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+
+  @media #{$breakpoint-md} {
+    font-size: 1.2em;
+    margin-top: 5px;
+    max-width: 100%;
+    padding: 10px;
+  }
+}
+
+.hotel-sidebar {
+  padding-bottom: 60px;
+
+  @media #{$breakpoint-md} {
+    align-self: center;
+    padding-bottom: 0;
+    width: 25%;
+  }  
+}

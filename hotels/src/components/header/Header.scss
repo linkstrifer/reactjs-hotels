@@ -1,0 +1,34 @@
+@import 'styles/variables.scss';
+
+.header {
+  background-color: $blue;
+  border-bottom: 4px solid $grayBlue;
+  box-sizing: border-box;
+  color: $white;
+  height: 115px;
+  left: 0;
+  overflow: hidden;
+  padding: 30px 20px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 100;
+
+  &:before {
+    bottom: 0;
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, .2z);
+    content: '';
+    height: 1px;;
+    left: 0;
+    position: absolute;
+    right: 0;
+  }
+
+  @media #{$breakpoint-md} {
+    height: 160px;
+  }
+}
+
+.header-logo {
+  height: 100%;
+}

@@ -8,9 +8,9 @@ const Routes = function (app) {
     .get(Controller.list);
 
   app.route([
-    '/search/:query',
-    '/search/:filterParam/:filterValue',
-    '/search/:query/:filterParam/:filterValue'
+    '/search/:page/:query',
+    '/search/:page/:filterParam/:filterValue',
+    '/search/:page/:query/:filterParam/:filterValue'
   ])
     .get(Controller.search);
 };

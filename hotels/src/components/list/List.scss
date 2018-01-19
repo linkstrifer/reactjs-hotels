@@ -1,0 +1,11 @@
+@import 'styles/variables.scss';
+
+.list {
+  box-sizing: border-box;
+  padding: 20px;
+  width: 100%;
+
+  @media #{$breakpoint-md} {
+    width: 70%;
+  }
+}
