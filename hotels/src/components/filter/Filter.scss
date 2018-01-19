@@ -2,14 +2,16 @@
 
 .filter {
   box-shadow: $shadow;
-  margin-left: 20px;
-  margin-top: 20px;
+  margin: auto;
   width: 100%;
 
   @media #{$breakpoint-md} {
     left: 0;
+    margin-left: 20px;
+    margin-top: 20px;
+    max-width: initial;
     position: fixed;
-    width: calc(30% - 60px);
+    width: calc(34% - 60px);
   }
 }
 
@@ -20,7 +22,7 @@
 }
 
 .filter-box-toggle {
-  max-height: 200px;
+  max-height: 300px;
   transition: max-height 250ms ease-in-out, opacity 500ms ease-in-out;
   overflow: hidden;
   opacity: 1;

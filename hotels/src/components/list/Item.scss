@@ -3,12 +3,16 @@
 .hotel {
   background-color: $white;
   box-shadow: $shadow;
+  box-sizing: border-box;
+  margin: auto;
   margin-bottom: 30px;
+  max-width: 550px;
   padding: 15px;
 
   @media #{$breakpoint-md} {
     display: flex;
     position: relative;
+    max-width: initial;
   }
 }
 

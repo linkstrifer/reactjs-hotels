@@ -2,7 +2,17 @@ import React, { Component } from 'react';
 
 class AccordionComponent extends Component {
   state = {
-    open: true,
+    open: true
+  }
+
+  componentWillMount() {
+    const { open } = this.props;
+
+    if (open === false) {
+      this.setState({
+        open
+      });
+    }
   }
 
   toggle = () => {
@@ -13,7 +23,7 @@ class AccordionComponent extends Component {
 
   render() {
     const { toggle } = this;
-    const { label, children: content } = this.props;
+    const { label, children: content, customClass } = this.props;
     const { open: isOpen } = this.state;
 
     return (
@@ -26,7 +36,7 @@ class AccordionComponent extends Component {
         >
           {label}
         </span>
-        <div className={`filter-box-toggle ${!isOpen ? 'is-closed' : ''}`}>
+        <div className={`filter-box-toggle ${!isOpen ? 'is-closed' : ''} ${customClass}`}>
           {content}
         </div>
       </div>
