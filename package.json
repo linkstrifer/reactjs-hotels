@@ -6,7 +6,8 @@
   "scripts": {
     "development": "concurrently --kill-others \"npx gulp dev:api\" \"nodemon server.js\" \"(cd hotels ; npm start)\" ",
     "pre-install": "npm i && cd hotels && npm i",
-    "start": "npm run pre-install && npm run development"
+    "start": "npm run pre-install && npm run development",
+    "build": "cd hotels && npm run build && mv build/ ../build/"
   },
   "repository": {
     "type": "git",
