@@ -1,8 +1,10 @@
 const data = require('./../data.json');
 
+const limit = 10;
+
 const list = ({ params }, res) => {
   const page = params.page || 0;
-  const results = data.slice(page, page + 10);
+  const results = data.slice(page * limit, (page * limit) + limit);
   
   res.json({
     total: results.length,
@@ -11,10 +13,10 @@ const list = ({ params }, res) => {
 };
 
 const search = ({ params }, res) => {
-  console.log('search');
+  const page = params.page || 0;
   const query = params.query ? new RegExp(params.query.toLowerCase(), 'g') : false;
   const filterParam = params.filterParam;
-  const results = data
+  let results = data
     .filter(hotel => {
       if (query && !query.test(hotel.name.toLowerCase())) {
         return false;
@@ -31,6 +33,8 @@ const search = ({ params }, res) => {
       return true;
     }
   );
+
+  results = results.slice(page * limit, (page * limit) + limit);
 
   res.json({
     total: results.length,

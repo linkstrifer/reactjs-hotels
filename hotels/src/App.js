@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 
 import {
-  getData,
   search,
 } from './helpers/data.helper';
 
@@ -16,12 +15,14 @@ class App extends Component {
     results: [],
     filtered: [],
     filterParams: [],
+    query: null,
+    currentPage: 0,
   }
 
   componentWillMount() {
-    const { filter } = this;
+    const { filter, scrollHandler } = this;
 
-    getData()
+    search()
       .then(data => {
         this.setState(prevState => ({
           ...data,
@@ -29,16 +30,59 @@ class App extends Component {
         }))
       })
       .catch(error => console.log(error));
+
+    window.addEventListener('scroll', scrollHandler)
+  }
+
+  componentWillUnmount() {
+    const { scrollHandler } = this;
+    window.removeEventListener('scroll', scrollHandler);
+  }
+
+  scrollHandler = () => {
+    const position = document.querySelector('body').getBoundingClientRect().bottom
+      - window.innerHeight
+      - 300;
+
+    if (position < 0) {
+      const { currentPage, query } = this.state;
+      const { filter, scrollHandler } = this;
+      const nextPage = currentPage + 1;
+
+      search(query, nextPage)
+        .then(data => {
+          if (data.total === 0) {
+            window.removeEventListener('scroll', scrollHandler);
+          } else {
+            this.setState(prevState => {
+              const results = [...prevState.results, ...data.results];
+    
+              return ({
+                results,
+                total: prevState.total + data.total,
+                currentPage: nextPage,
+                filtered: filter(results, prevState.filterParams),
+              });
+            })
+          }
+        })
+    }
   }
 
   searchHandler = query => {
-    search(query)
+    const { scrollHandler } = this;
+
+    window.addEventListener('scroll', scrollHandler);
+
+    search(query, 0)
       .then(data => {
         const { filter } = this;
 
         this.setState(prevState => ({
           ...data,
-          filtered: filter(data.results, prevState.filterParams)
+          filtered: filter(data.results, prevState.filterParams),
+          query,
+          currentPage: 0,
         }))
       })
       .catch(error => console.log(error));
